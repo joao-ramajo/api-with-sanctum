@@ -6,10 +6,13 @@ use App\Services\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/status', function () {
-    return ApiResponse::success('API is running');
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/status', function () {
+        return ApiResponse::success('API is running');
+    });
+
+    Route::apiResource('clients', ClientController::class);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
-
-Route::apiResource('clients', ClientController::class);
