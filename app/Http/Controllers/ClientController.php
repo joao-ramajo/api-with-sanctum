@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -11,7 +12,12 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        // retorna todos os clientes da base de dados
+        return response()
+            ->json(
+                Client::paginate(10),
+                200
+            );
     }
 
     /**
@@ -27,7 +33,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+            ]
+        );
+
+        $client = Client::create($request->all());
+
+        return response()
+            ->json([
+                'message' => 'Client created successfully',
+                'data' => $client
+            ]);
     }
 
     /**
