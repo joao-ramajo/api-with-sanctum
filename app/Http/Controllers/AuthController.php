@@ -45,7 +45,12 @@ class AuthController extends Controller
 
         $user =  auth()->user();
 
-        $token = $user->createToken($user->name)->plainTextToken;
+
+        // verifica se o token é válido
+        // $token = $user->createToken($user->name)->plainTextToken;
+
+        // definindo tempo de expiração do token para uma hora após sua crição 
+        $token =  $user->createToken($user->name, ['*'], now()->addHour())->plainTextToken;
 
         // retorna o token da api 
 
