@@ -13,6 +13,12 @@ class ClientController extends Controller
      */
     public function index()
     {
+
+        // checa se o usuario tem permissões para acessar
+        if (!auth()->user()->tokenCan('clients:list')) {
+            return ApiResponse::unauthrized();
+        }
+
         // retorna todos os clientes da base de dados
         // return response()
         //     ->json(
@@ -59,6 +65,11 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
+
+        if (!auth()->user()->tokenCan('clients:detail')) {
+            return ApiResponse::unauthrized();
+        }
+        
         $client = Client::find($id);
 
         if (!$client) {
