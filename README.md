@@ -1,5 +1,5 @@
-# API Laravel com autenticação e autorizado usando Sanctum 
-| API | Sanctum | Tokens | 
+# 🌐 API Laravel com autenticação e autorizado usando Sanctum 
+*API, Sanctum, Tokens*
 
 Este projeto tem como objetivo o estudo do pacote *Sanctum* do ecossistema *Laravel* para autenticação de APIs.
 
@@ -17,6 +17,6 @@ Também inclui:
 - Autenticação baseada em tokens com **Sanctum**
 - Uso das **Abilities** para gerenciar permissões de acesso a determinadas rotas e métodos
 
-## Autenticação
+## 🛡️ Autenticação
 
 A autenticação é feita por meio de tokens pessoais gerados com Sanctum. O sistema diferencia os acessos com base nas *abilities* atribuídas a cada token, permitindo aplicar políticas de autorização em rotas específicas.
