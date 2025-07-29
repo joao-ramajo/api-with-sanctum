@@ -1,4 +1,4 @@
-# 🌐 API Laravel com autenticação e autorizado usando Sanctum 
+# API with sanctum 
 *API, Sanctum, Tokens*
 
 Este projeto tem como objetivo o estudo do pacote *Sanctum* do ecossistema *Laravel* para autenticação de APIs.
